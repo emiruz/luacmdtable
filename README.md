@@ -88,7 +88,7 @@ can be any reference type you want: table, function, etc. The function returns i
 
 ##  cmd(f, ...) -> self
 
-Adds a new line to the command table. The **ff** parameter must be a state function
+Adds a new line to the command table. The **f** parameter must be a state function
 with a proforma like **f(state) -> void**, the return value is ignored.
 
 The rest of the parameters should be zero or more condition functions. A condition
