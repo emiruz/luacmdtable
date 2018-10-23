@@ -35,3 +35,26 @@ local t = D.init()
 repeat
    print(t:exec(), t.state.a,t.state.b,t.state.c,t.state.success)
 until t.state.success
+
+
+-- neg, conj, disc tests.
+
+assert(D.neg(function(s) return true end)() == false)
+
+assert(D.neg(function(s) return false end)() == true)
+
+assert(D.conj(
+	  function(s) return true end,
+	  function(s) return false end)() == false)
+
+assert(D.conj(
+	  function(s) return true end,
+	  function(s) return true end)() == true)
+
+assert(D.disc(
+	  function(s) return false end,
+	  function(s) return true end)() == true)
+
+assert(D.disc(
+	  function(s) return false end,
+	  function(s) return false end)() == false)
