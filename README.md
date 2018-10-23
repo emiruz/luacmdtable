@@ -86,7 +86,7 @@ Output:
 Initialises the command table object with an optional state parameter. The state
 can be any reference type you want: table, function, etc. The function returns itself.
 
-##  cmd(f, ...) -> self
+##  cmd(self,f, ...) -> self
 
 Adds a new line to the command table. The **f** parameter must be a state function
 with a proforma like **f(state) -> void**, the return value is ignored.
@@ -95,10 +95,30 @@ The rest of the parameters should be zero or more condition functions. A conditi
 function tests the state for a particular condition are returns a boolean value. It
 must have the proforma **f(state) -> {true,false}**.
 
-##  exec() -> N
+##  exec(self) -> N
 
 Executes all functions in your command table which meet their criteria. Note that if a 
 Returns the number of functions executed.
+
+## neg(f) -> f(state)
+
+Expects a function **f** as an argument with proforma **f(state) -> {true,false}**.
+Returns a function of proforma **f(state) -> {true,false}** which is the negation
+of the function **f**.
+
+## conj(...) -> f(state)
+
+A convenience function for complicated logic.
+Expects a list of functions with proforma **f(state) -> {true,false}**. Returns a
+function of proforma **f(state) -> {true,false}** which is the conjunction of all
+the functions in the list.
+
+## disc(...) -> f(state)
+
+A convenience function for complicated logic.
+Expects a list of functions with proforma **f(state) -> {true,false}**. Returns a
+function of proforma **f(state) -> {true,false}** which is the disjunction of all
+the functions in the list.
 
 # Test suite
 
