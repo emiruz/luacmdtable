@@ -4,7 +4,7 @@ A command table is a useful abstraction for running a function when the system i
 pre-specified state. The command table makes clear in which state the function can run.
 
 |     | s_1 | s_2 | s_3 | s_4 |
-| --- | --- + --- + --- + --- |
+| --- | --- | --- | --- | --- |
 | f_1 |  F  |  F  |  F  |  F  |
 | f_2 |  T  |  F  |  T  |  T  |
 | f_3 |  T  |  T  |  T  |  T  |
@@ -39,7 +39,7 @@ We'll add a shortcut for creating negations:
 Here is a command table for us to translate.
 
 |   | a | b | c |
-|---+---+---+---+
+|---|---|---|---|
 | A | F | F | F |
 | B | T | F | F |
 | C | T | T | F |
